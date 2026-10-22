@@ -6,7 +6,9 @@
   --navy: #1b3a9b;
   --canvas: #f4f6fc;
   --ink: #161a2e;
+  --ink-soft: #1e2438;
   --muted: #6b7280;
+  --muted-on-dark: #9aa2b8;
   --white: #ffffff;
   --border: #e5e8f2;
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
@@ -57,6 +59,11 @@ a {
   color: var(--teal-dark);
 }
 
+em {
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
 /* —— Hero: one full-bleed composition —— */
 .hero {
   position: relative;
@@ -94,7 +101,7 @@ a {
 .hero-inner {
   position: relative;
   z-index: 2;
-  max-width: 36rem;
+  max-width: 38rem;
 }
 
 .brand {
@@ -107,25 +114,29 @@ a {
 }
 
 .headline {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.85rem;
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 3.5vw, 1.85rem);
+  font-size: clamp(1.45rem, 3.8vw, 2rem);
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 1.22;
   color: #e8f7f5;
 }
 
 .lede {
   margin: 0 0 1.75rem;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   color: rgba(255, 255, 255, 0.85);
-  max-width: 28rem;
+  max-width: 30rem;
 }
 
 .cta-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+}
+
+.cta-row-center {
+  justify-content: center;
 }
 
 .cta {
@@ -173,77 +184,211 @@ a {
   border-color: rgba(255, 255, 255, 0.75);
 }
 
-/* —— Sections —— */
-.section {
-  padding: clamp(3.5rem, 8vw, 5.5rem) clamp(1.5rem, 4vw, 3rem);
+.cta-on-dark {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.45);
 }
 
-.section-inner {
-  max-width: 42rem;
+.cta-on-dark:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* —— Story chapters —— */
+.chapter {
+  padding: clamp(4rem, 10vw, 7rem) clamp(1.5rem, 4vw, 3rem);
+  position: relative;
+}
+
+.chapter-inner {
+  max-width: 38rem;
   margin: 0 auto;
 }
 
-.section h2 {
-  margin: 0 0 0.75rem;
+.chapter-label {
+  margin: 0 0 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.chapter h2 {
+  margin: 0 0 1.5rem;
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-size: clamp(1.85rem, 4.5vw, 2.6rem);
   font-weight: 600;
   letter-spacing: -0.02em;
+  line-height: 1.15;
   color: var(--ink);
 }
 
-.section .support {
-  margin: 0 0 2rem;
+.chapter .support {
+  margin: -0.5rem 0 2rem;
   color: var(--muted);
   max-width: 32rem;
 }
 
-.steps {
-  margin: 0;
+.support-center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.prose p {
+  margin: 0 0 1.15rem;
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.pull {
+  margin: 2.25rem 0 0;
+  padding: 0;
+  border: none;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.65rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--ink);
+  max-width: 22rem;
+}
+
+.pull-teal {
+  color: var(--teal-dark);
+}
+
+/* Chapter atmospheres */
+.chapter-night {
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(27, 58, 155, 0.18), transparent 55%),
+    linear-gradient(180deg, #121526 0%, #1a1f36 100%);
+  color: #e8eaf4;
+}
+
+.chapter-night .chapter-label {
+  color: #7ec9c3;
+}
+
+.chapter-night h2 {
+  color: var(--white);
+}
+
+.chapter-night .prose p {
+  color: rgba(232, 234, 244, 0.88);
+}
+
+.chapter-night .pull {
+  color: #c5ebe7;
+}
+
+.chapter-turn {
+  background:
+    radial-gradient(ellipse 70% 50% at 0% 100%, rgba(26, 148, 140, 0.4), transparent 50%),
+    linear-gradient(160deg, var(--teal-dark) 0%, var(--teal) 55%, #127a73 100%);
+  color: var(--white);
+}
+
+.chapter-turn .chapter-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.chapter-turn h2 {
+  color: var(--white);
+}
+
+.prose-on-teal p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.chapter-journey {
+  background: var(--canvas);
+}
+
+.chapter-quiet {
+  background:
+    linear-gradient(180deg, #eef2fa 0%, var(--canvas) 100%);
+}
+
+.chapter-plans {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+}
+
+.chapter-close {
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 120%, rgba(26, 148, 140, 0.35), transparent 55%),
+    linear-gradient(165deg, var(--teal-dark) 0%, #0a4f4b 100%);
+  color: var(--white);
+  text-align: center;
+}
+
+.chapter-close h2 {
+  color: var(--white);
+}
+
+.chapter-close .support {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.chapter-close .cta-primary {
+  background: var(--white);
+  color: var(--teal-dark);
+}
+
+/* Scenes — narrative beats, not feature cards */
+.scenes {
+  margin: 2.5rem 0 0;
   padding: 0;
   list-style: none;
-  counter-reset: step;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0;
 }
 
-.steps li {
-  counter-increment: step;
-  padding-left: 3.25rem;
-  position: relative;
+.scene {
+  padding: 2rem 0 2.25rem;
+  border-top: 1px solid var(--border);
+  max-width: 34rem;
 }
 
-.steps li::before {
-  content: counter(step);
-  position: absolute;
-  left: 0;
-  top: 0.1rem;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 50%;
-  background: var(--teal);
-  color: var(--white);
-  font-weight: 700;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.scene:last-child {
+  padding-bottom: 0;
 }
 
-.steps strong {
+.scene-when {
   display: block;
-  font-size: 1.1rem;
-  margin-bottom: 0.2rem;
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.scene h3 {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.45rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
   color: var(--ink);
 }
 
-.steps span {
+.scene p {
+  margin: 0;
   color: var(--muted);
-  font-size: 0.98rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
 }
 
-/* Plans — interaction list, not card grid clutter */
+/* Plans */
 .plans {
   margin: 0;
   padding: 0;
@@ -298,37 +443,6 @@ a {
   text-decoration: underline;
 }
 
-.section-cta {
-  background: linear-gradient(180deg, var(--canvas) 0%, #e8eef8 100%);
-  text-align: center;
-}
-
-.section-cta .section-inner {
-  max-width: 28rem;
-}
-
-.section-cta .cta-row {
-  justify-content: center;
-}
-
-.section-cta .cta-primary {
-  background: var(--teal);
-  color: var(--white);
-}
-
-.section-cta .cta-primary:hover {
-  background: var(--teal-dark);
-}
-
-.section-cta .cta-secondary {
-  color: var(--teal-dark);
-  border-color: var(--teal);
-}
-
-.section-cta .cta-secondary:hover {
-  background: rgba(15, 119, 113, 0.08);
-}
-
 /* Footer */
 .site-footer {
   padding: 2.5rem clamp(1.5rem, 4vw, 3rem) 3rem;
@@ -338,7 +452,7 @@ a {
 }
 
 .site-footer .footer-inner {
-  max-width: 42rem;
+  max-width: 38rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -392,11 +506,19 @@ a {
 
 .reveal {
   opacity: 0;
-  transform: translateY(1rem);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  transform: translateY(1.15rem);
+  transition: opacity 0.65s ease, transform 0.65s ease;
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.scenes .scene.reveal:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.scenes .scene.reveal:nth-child(3) {
+  transition-delay: 0.16s;
 }
