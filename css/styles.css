@@ -1,0 +1,402 @@
+/* LandlordCrew marketing — brand teal from the mobile app */
+:root {
+  --teal: #0f7771;
+  --teal-dark: #0b5e59;
+  --teal-bright: #1a948c;
+  --navy: #1b3a9b;
+  --canvas: #f4f6fc;
+  --ink: #161a2e;
+  --muted: #6b7280;
+  --white: #ffffff;
+  --border: #e5e8f2;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans 3", "Source Sans Pro", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-wash,
+  .reveal,
+  .cta {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--canvas);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--teal-dark);
+}
+
+/* —— Hero: one full-bleed composition —— */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.hero-wash {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 90% 70% at 70% 20%, rgba(26, 148, 140, 0.55), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 10% 90%, rgba(27, 58, 155, 0.35), transparent 50%),
+    linear-gradient(165deg, var(--teal-dark) 0%, var(--teal) 45%, #0a4f4b 100%);
+  animation: wash-in 1.1s ease-out both;
+}
+
+.hero-mark {
+  position: absolute;
+  right: -8%;
+  bottom: -12%;
+  width: min(72vw, 560px);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 1;
+  animation: mark-in 1.2s ease-out 0.15s both;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 36rem;
+}
+
+.brand {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 9vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.headline {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3.5vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.25;
+  color: #e8f7f5;
+}
+
+.lede {
+  margin: 0 0 1.75rem;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 28rem;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+}
+
+.cta:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.cta-primary {
+  background: var(--white);
+  color: var(--teal-dark);
+}
+
+.cta-primary:hover {
+  background: #f0faf9;
+}
+
+.cta-secondary {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+/* —— Sections —— */
+.section {
+  padding: clamp(3.5rem, 8vw, 5.5rem) clamp(1.5rem, 4vw, 3rem);
+}
+
+.section-inner {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.section h2 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.section .support {
+  margin: 0 0 2rem;
+  color: var(--muted);
+  max-width: 32rem;
+}
+
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.steps li {
+  counter-increment: step;
+  padding-left: 3.25rem;
+  position: relative;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--teal);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.steps strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+  color: var(--ink);
+}
+
+.steps span {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+/* Plans — interaction list, not card grid clutter */
+.plans {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--border);
+}
+
+.plans li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.35rem 1rem;
+  align-items: baseline;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.plans .name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.plans .detail {
+  grid-column: 1;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.plans .price {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  white-space: nowrap;
+}
+
+.plans .custom .price {
+  font-size: 1rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.plans a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.plans a:hover {
+  text-decoration: underline;
+}
+
+.section-cta {
+  background: linear-gradient(180deg, var(--canvas) 0%, #e8eef8 100%);
+  text-align: center;
+}
+
+.section-cta .section-inner {
+  max-width: 28rem;
+}
+
+.section-cta .cta-row {
+  justify-content: center;
+}
+
+.section-cta .cta-primary {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.section-cta .cta-primary:hover {
+  background: var(--teal-dark);
+}
+
+.section-cta .cta-secondary {
+  color: var(--teal-dark);
+  border-color: var(--teal);
+}
+
+.section-cta .cta-secondary:hover {
+  background: rgba(15, 119, 113, 0.08);
+}
+
+/* Footer */
+.site-footer {
+  padding: 2.5rem clamp(1.5rem, 4vw, 3rem) 3rem;
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+}
+
+.site-footer .footer-inner {
+  max-width: 42rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.site-footer .brand-sm {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+
+.site-footer a {
+  color: #a8e0da;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Motion */
+@keyframes wash-in {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes mark-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 0.18;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
